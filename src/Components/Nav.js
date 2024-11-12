@@ -1,16 +1,20 @@
 import React from 'react'
 import { useState } from 'react';
-import { useEffect } from 'react';
 import home_icon from '../Image/House icons for free download _ Freepik.jpeg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Profile from './Profile';
 
 function Nav() {
+    const nav = useNavigate()
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModal1Open, setIsModal1Open] = useState(false);
     const [signname, setSignname] = useState("");
     const [signemail, setSignemail] = useState("");
     const [signpassword, setSignpassword] = useState("");
-    const [signprofile, setSignprofile] = useState("");
+
+    const [loginemail,setLoginemail] = useState()
+    const [loginpassword,setLoginpassword] = useState()
+
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -26,14 +30,15 @@ function Nav() {
         setIsModal1Open(false);
       };
 
-      handleSignin=()=>{
-        fetch('https://jsonplaceholder.typicode.com/posts', {
+      function handleSignin(){
+        fetch('http://localhost:3000/Members', {
             method: 'POST',
             body: JSON.stringify({
-              name: 'foo',
-              email: 'bar',
-              password: 1,
+              name: signname,
+              email: signemail,
+              password:signpassword,
               profile_pic:'',
+              schedules:[{}],
             }),
             headers: {
               'Content-type': 'application/json',
@@ -42,6 +47,36 @@ function Nav() {
             .then((response) => response.json())
             .then((json) => console.log(json));
       }
+
+      function login(e){
+        e.preventDefault()
+    
+          fetch('http://localhost:3000/Members')
+          .then((response) => response.json())
+          .then((data) => {
+      
+            const searching = data && data.find((member)=>{
+              return (member.email === loginemail) && (member.password===loginpassword)
+            })
+            if (searching===undefined){
+              alert("Member Not Found")
+            }
+            else{
+                nav("/profile")
+                setIsModal1Open(false)
+                console.log(searching)
+                return(
+                <>
+                <Profile members={searching}/>
+                </>
+                )
+            }
+
+            
+          })
+          .catch((error) => console.error("Error fetching data:", error));
+      
+        }
 
   return (
     <div>
@@ -63,13 +98,17 @@ function Nav() {
                       ></button>
                     </div>
                     <div className="modal-body">
-                      <form>
-                        <input placeholder='Name'/>
-                        <label>Price</label>
-                        <input  />
-                        <button type="submit">CONTINUE</button>
-                      </form>
-                
+                    <form onSubmit={login}>
+                      <div className="mb-3">
+                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={loginemail} onChange={(e)=>setLoginemail(e.target.value)} required/>
+                      </div>
+                      <div className="mb-3">
+                        <label for="exampleInputPassword1" className="form-label">Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" value={loginpassword} onChange={(e)=>setLoginpassword(e.target.value)} required/>
+                      </div>
+                      <button type="submit" className="btn btn-primary">Continue</button>
+                    </form>
                     </div>
                   </div>
                 </div>
@@ -82,7 +121,7 @@ function Nav() {
                 <div className="modal-dialog">
                   <div className="modal-content">
                     <div className="modal-header">
-                      <h5 className="modal-title">"modal"</h5>
+                      <h5 className="modal-title">"SIGN-IN"</h5>
                       <button
                         type="button"
                         className="btn-close"
@@ -90,12 +129,26 @@ function Nav() {
                       ></button>
                     </div>
                     <div className="modal-body">
-                      <form>
-                        <input placeholder='Name'/>
-                        <label>Price</label>
-                        <input  />
-                        <button type="submit">Update</button>
-                      </form>
+                    <form onSubmit={handleSignin}>
+                    <div className="mb-3">
+                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={signname} onChange={(e)=>setSignname(e.target.value)} required/>
+                      </div>
+                      <div className="mb-3">
+                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={signemail} onChange={(e)=>setSignemail(e.target.value)} required/>
+                        <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                      </div>
+                      <div className="mb-3">
+                        <label for="exampleInputPassword1" className="form-label">Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" value={signpassword} onChange={(e)=>setSignpassword(e.target.value)} required/>
+                      </div>
+                      <div className="mb-3 form-check">
+                        <input type="checkbox" className="form-check-input" id="exampleCheck1" required/>
+                        <label className="form-check-label" for="exampleCheck1"><a>Privacy Policy</a></label>
+                      </div>
+                      <button type="submit" className="btn btn-primary">Submit</button>
+                    </form>
                 
                     </div>
                   </div>

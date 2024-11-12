@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
+    <div style={{textAlign:"center"}}>
         <p>&copy; All rights reserved</p>
     </div>
   )
