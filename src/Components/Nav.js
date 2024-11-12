@@ -58,18 +58,18 @@ function Nav() {
             const searching = data && data.find((member)=>{
               return (member.email === loginemail) && (member.password===loginpassword)
             })
+            console.log({searching})
             if (searching===undefined){
               alert("Member Not Found")
             }
             else{
-                nav("/profile")
+                nav(`/profile/${searching.id}`)
                 setIsModal1Open(false)
-                console.log(searching)
-                return(
-                <>
-                <Profile members={searching}/>
-                </>
-                )
+                // return(
+                // <>
+                // <Profile member={searching}/>
+                // </>
+                // )
             }
 
             
