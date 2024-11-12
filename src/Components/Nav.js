@@ -1,11 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
+import { useEffect } from 'react';
 import home_icon from '../Image/House icons for free download _ Freepik.jpeg'
 import { Link } from 'react-router-dom'
 
 function Nav() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModal1Open, setIsModal1Open] = useState(false);
+    const [signname, setSignname] = useState("");
+    const [signemail, setSignemail] = useState("");
+    const [signpassword, setSignpassword] = useState("");
+    const [signprofile, setSignprofile] = useState("");
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -20,6 +25,23 @@ function Nav() {
       const closeModal1= () => {
         setIsModal1Open(false);
       };
+
+      handleSignin=()=>{
+        fetch('https://jsonplaceholder.typicode.com/posts', {
+            method: 'POST',
+            body: JSON.stringify({
+              name: 'foo',
+              email: 'bar',
+              password: 1,
+              profile_pic:'',
+            }),
+            headers: {
+              'Content-type': 'application/json',
+            },
+          })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+      }
 
   return (
     <div>
