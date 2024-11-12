@@ -1,0 +1,58 @@
+{
+    "Members":[
+        {
+        "id":1,
+        "name":"Joseph",
+        "email":"joseph@gmail.com",
+        "password":"5674jvb",
+        "profile_pic":"",
+        "schedules":[
+                {
+                    "id": 1,
+                    "title": "Meeting with Client A",
+                    "time": "2024-11-11T10:00:00Z",
+                    "date": "1/25/2024",
+                    "description": "Discuss project proposal and timeline.",
+                    "status":"pending"
+                },
+                {
+                    "id": 2,
+                    "title": "Team Meeting",
+                    "Time": "2024-11-12T14:00:00Z",
+                    "date": "3/13/2024",
+                    "description": "Review project progress and assign tasks.",
+                    "status":"complete"
+                }
+            
+        ]
+    
+        },
+        {
+            "id":2,
+            "name":"John Doe",
+            "email":"johndoe@gmail.com",
+            "password":"5657758",
+            "profile_pic":"",
+            "schedules":[
+                    {
+                        "id": 1,
+                        "title": "Meeting with Client A",
+                        "time": "2024-11-11T10:00:00Z",
+                        "date": "1/25/2024",
+                        "description": "Discuss project proposal and timeline.",
+                        "status":"pending"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Team Meeting",
+                        "Time": "2024-11-12T14:00:00Z",
+                        "date": "3/13/2024",
+                        "description": "Review project progress and assign tasks.",
+                        "status":"complete"
+                    }
+                
+            ]
+        
+        }
+    ]
+}
