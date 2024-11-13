@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 
+
 function Profile() {
+
+    const {id} = useParams()
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     // Fetch user data from db.json
-    fetch('http://localhost:3000/Members')
+
+    fetch(`http://localhost:3000/Members/${id}`)
       .then((response) => response.json())
       .then((data) => {
         // Select the user with id 1 (You can modify this logic for dynamic user selection)
-        const loggedInUser = data.find((member) => member.id == 1); // Example: Get user with id 1
-        setUser(loggedInUser); // Set the correct user object
+        // const loggedInUser = data.find((member) => member.id == id); // Example: Get user with id 1
+        setUser(data); // Set the correct user object
        
       })
       .catch((error) => {
@@ -21,7 +26,8 @@ function Profile() {
       .finally(() => {
         setLoading(false); // Set loading to false when the fetch finishes
       });
-  }, []);
+  }, [id]);
+
 
   console.log(user); // Check the fetched user data
 
@@ -35,21 +41,25 @@ function Profile() {
 
   return (
     <div style={{ marginTop: '20px' }}>
+        <h2>{id}</h2>
       <h2>Your Profile</h2>
       <div className="user-details">
         <img
-          src={user.profile_pic || 'https://via.placeholder.com/150'}
+          src={user && user.profile_pic || 'https://via.placeholder.com/150'}
+
           alt="Profile Pic"
           className="profile-pic"
           style={{ borderRadius: '50%', width: '150px', height: '150px' }}
         />
-        <p><strong>Name:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
+        <p><strong>Name:</strong> {user && user.name}</p>
+        <p><strong>Email:</strong> {user && user.email}</p>
       </div>
 
       <h3>Your Schedules</h3>
+
       <ul style={{ listStyleType: 'none', padding: 0 }}>
-        {user.schedules.map((schedule) => (
+        {user && user.schedules.map((schedule) => (
+
           <li
             key={schedule.id}
             style={{
@@ -72,3 +82,4 @@ function Profile() {
 }
 
 export default Profile;
+
