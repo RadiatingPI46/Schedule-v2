@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+
 
 function Profile() {
 
     const {id} = useParams()
-
 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true); // Added loading state
 
   useEffect(() => {
     // Fetch user data from db.json
+
     fetch(`http://localhost:3000/Members/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -27,6 +27,7 @@ function Profile() {
         setLoading(false); // Set loading to false when the fetch finishes
       });
   }, [id]);
+
 
   console.log(user); // Check the fetched user data
 
@@ -45,6 +46,7 @@ function Profile() {
       <div className="user-details">
         <img
           src={user && user.profile_pic || 'https://via.placeholder.com/150'}
+
           alt="Profile Pic"
           className="profile-pic"
           style={{ borderRadius: '50%', width: '150px', height: '150px' }}
@@ -57,6 +59,7 @@ function Profile() {
 
       <ul style={{ listStyleType: 'none', padding: 0 }}>
         {user && user.schedules.map((schedule) => (
+
           <li
             key={schedule.id}
             style={{
@@ -79,3 +82,4 @@ function Profile() {
 }
 
 export default Profile;
+
