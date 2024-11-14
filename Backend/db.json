@@ -2,10 +2,10 @@
   "Members": [
     {
       "id": "1",
-      "name": "Joseph",
-      "email": "joseph@gmail.com",
-      "password": "56",
-      "profile_pic": "",
+      "name": "Tyler",
+      "email": "tyler@gmaqil.com",
+      "password": "48",
+      "profile_pic": "https://i.pinimg.com/474x/d9/01/a7/d901a7bab6d28696700da387495ca704.jpg",
       "schedules": [
         {
           "id": 1,
@@ -38,8 +38,36 @@
           "time": "3:49 PM",
           "description": "Er",
           "status": "pending"
+        },
+        {
+          "title": "routing",
+          "date": "2024-11-14",
+          "time": "21:58",
+          "description": "jbwkjbjsvfsnmd",
+          "status": "pending",
+          "id": 1731610616449
         }
-        ]
+      ]
+    },
+    {
+      "id": "e14a",
+      "name": "Trevor",
+      "email": "trevor@gmail.com",
+      "password": "456",
+      "profile_pic": "https://i.pinimg.com/474x/10/a3/fa/10a3fa5c95b1d47797ca15cf5b3e80b8.jpg",
+      "schedules": [
+        {}
+      ]
+    },
+    {
+      "id": "a1fd",
+      "name": "Tony",
+      "email": "johndoe@gmail.com",
+      "password": "67",
+      "profile_pic": "",
+      "schedules": [
+        {}
+      ]
+    }
   ]
 }
-

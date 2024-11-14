@@ -7,7 +7,7 @@ function About() {
         <h2 className="abouth2"><strong>Introduction to Schedule Applications</strong></h2> 
         <p className='aboutp'>
 
-        In today’s fast-paced world, managing time effectively is more crucial than ever. With the advent of technology, scheduling tasks has become easier through the use of schedule applications. These apps are designed to help individuals, professionals, and teams organize their time, ensuring that they stay on track and meet deadlines efficiently. From simple daily to-do lists to complex calendar management, schedule applications have become essential tools in modern life.
+        In today’s fast-paced world, managing time effectively is more crucial than ever. With the advent of technology, scheduling tasks has become easier through the use of schedule applications. Apps such as this are designed to help individuals, professionals, and teams organize their time, ensuring that they stay on track and meet deadlines efficiently. From simple daily to-do lists to complex calendar management, schedule applications have become essential tools in modern life.
 
         </p>
         <h2 className="abouth2"><strong>Key Features of Schedule Applications</strong> </h2>

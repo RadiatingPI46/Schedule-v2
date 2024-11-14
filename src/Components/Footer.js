@@ -1,14 +1,18 @@
-<<<<<<< HEAD
-=======
-import React from 'react'
+import React from 'react';
+
 
 function Footer() {
   return (
-    <div style={{textAlign:"center"}}>
+    <footer className="footer bg-dark text-white py-4">
+      <div className="container text-center">
+        <h5>Contact Us</h5>
+        <p>Email: sv2@gmail..com | Phone: +123 456 7890</p>
+      </div>
+      <div className="scrolling-text">
         <p>&copy; All rights reserved</p>
-    </div>
-  )
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
->>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
+export default Footer;

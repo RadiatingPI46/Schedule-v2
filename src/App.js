@@ -6,6 +6,7 @@ import Footer from "./Components/Footer";
 import Profile from "./Components/Profile";
 import About from "./Components/About";
 import Nopage from "./Components/Nopage";
+import Editprofile from "./Components/Editprofile";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/profile/:id" element={<Profile/>}/>
                 <Route path="/about" element={<About/>}/>
+                <Route path="editprofile/:id" element={<Editprofile/>}/>
                 <Route path="*" element={<Nopage/>}/>
               </Routes>
             </div>

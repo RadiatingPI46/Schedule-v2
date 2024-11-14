@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from 'react'
 import { useState } from 'react';
 import home_icon from '../Image/House icons for free download _ Freepik.jpeg'
@@ -32,21 +30,34 @@ function Nav() {
       };
 
       function handleSignin(){
-        fetch('http://localhost:3000/Members', {
-            method: 'POST',
-            body: JSON.stringify({
-              name: signname,
-              email: signemail,
-              password:signpassword,
-              profile_pic:'',
-              schedules:[{}],
-            }),
-            headers: {
-              'Content-type': 'application/json',
-            },
+        fetch('http://localhost:3000/Members')
+        .then((response) => response.json())
+        .then((memberlist) => {
+          const parameter = memberlist && memberlist.find((member)=>{
+            return (member.email === signemail) || (member.password===signpassword)
           })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+          if (parameter===undefined){
+            fetch('http://localhost:3000/Members', {
+              method: 'POST',
+              body: JSON.stringify({
+                name: signname,
+                email: signemail,
+                password:signpassword,
+                profile_pic:'',
+                schedules:[{}],
+              }),
+              headers: {
+                'Content-type': 'application/json',
+              },
+            })
+              .then((response) => response.json())
+              .then((json) => console.log(json));
+          }
+          else{
+            alert("Email or Password already exists")
+          }
+        });
+
       }
 
       function login(e){
@@ -144,7 +155,7 @@ function Nav() {
                       </div>
                       <div className="mb-3 form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" required/>
-                        <label className="form-check-label" for="exampleCheck1"><a>Privacy Policy</a></label>
+                        <label className="form-check-label" for="exampleCheck1"><a href='#'>Privacy Policy</a></label>
                       </div>
                       <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
@@ -161,4 +172,3 @@ function Nav() {
 }
 
 export default Nav
->>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec

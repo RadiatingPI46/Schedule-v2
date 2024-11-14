@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import React from 'react'
 import home_image from '../Image/Schedule.jpeg'
 import home_image1 from '../Image/Free_Vector___Businessman_morning_day_schedule_notebook-removebg-preview.png'
@@ -19,4 +17,3 @@ function Home() {
 }
 
 export default Home
->>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
