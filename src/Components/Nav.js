@@ -4,7 +4,6 @@ import React from 'react'
 import { useState } from 'react';
 import home_icon from '../Image/House icons for free download _ Freepik.jpeg'
 import { Link, useNavigate } from 'react-router-dom'
-import Profile from './Profile';
 
 function Nav() {
     const nav = useNavigate()
@@ -67,11 +66,9 @@ function Nav() {
             else{
                 nav(`/profile/${searching.id}`)
                 setIsModal1Open(false)
-                // return(
-                // <>
-                // <Profile member={searching}/>
-                // </>
-                // )
+                setLoginemail()
+                setLoginpassword()
+
             }
 
             
@@ -85,7 +82,7 @@ function Nav() {
         <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{justifyContent:"space-between", padding:"5px"}}>
             <Link to={'./' }><img src={`${home_icon}`} alt='HOME' style={{width:"30px" ,height:"30px"}}></img></Link>
             <div>
-            <button onClick={openModal1} style={{width:"90px"}}>LOGIN</button>
+            <button onClick={openModal1} style={{width:"90px", marginRight:"5px"}}>LOGIN</button>
         
             {isModal1Open && (
               <div className="modal show d-block" tabIndex="-1">
@@ -133,7 +130,7 @@ function Nav() {
                     <div className="modal-body">
                     <form onSubmit={handleSignin}>
                     <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Email address</label>
+                        <label for="exampleInputEmail1" className="form-label">Name</label>
                         <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value={signname} onChange={(e)=>setSignname(e.target.value)} required/>
                       </div>
                       <div className="mb-3">
