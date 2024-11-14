@@ -29,12 +29,13 @@ function Nav() {
         setIsModal1Open(false);
       };
 
-      function handleSignin(){
+      function handleSignin(e){
+        e.preventDefault()
         fetch('https://schedule-v2.onrender.com/Members')
         .then((response) => response.json())
         .then((memberlist) => {
           const parameter = memberlist && memberlist.find((member)=>{
-            return (member.email === signemail) || (member.password===signpassword)
+            return (member.email===signemail) && (member.password===signpassword)
           })
           if (parameter===undefined){
             fetch('https://schedule-v2.onrender.com/Members', {
@@ -51,7 +52,15 @@ function Nav() {
               },
             })
               .then((response) => response.json())
-              .then((json) => console.log(json));
+              .then((json) => {
+              alert("Added successfully");
+              console.log(json);              
+              setIsModalOpen(false);
+              setSignname("");
+              setSignemail("");
+              setSignpassword("");
+              })
+              .catch((error) => console.error("Error fetching data:", error));
           }
           else{
             alert("Email or Password already exists")
