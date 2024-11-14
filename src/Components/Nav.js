@@ -64,6 +64,8 @@ function Nav() {
             else{
                 nav(`/profile/${searching.id}`)
                 setIsModal1Open(false)
+                setLoginemail()
+                setLoginpassword()
 
             }
 

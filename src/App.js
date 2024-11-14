@@ -5,16 +5,18 @@ import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
 import Profile from "./Components/Profile";
 import About from "./Components/About";
+import Nopage from "./Components/Nopage";
 
 function App() {
   return (
     <Router>
         <Nav/>
-            <div>
+            <div style={{backgroundColor:"darkgray"}}>
               <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/profile/:id" element={<Profile/>}/>
                 <Route path="/about" element={<About/>}/>
+                <Route path="*" element={<Nopage/>}/>
               </Routes>
             </div>
         <Footer/>

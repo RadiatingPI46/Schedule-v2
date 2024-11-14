@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Joseph",
       "email": "joseph@gmail.com",
-      "password": "5674jvb",
+      "password": "12",
       "profile_pic": "",
       "schedules": [
         {
@@ -29,7 +29,7 @@
       "id": "2",
       "name": "John Doe",
       "email": "johndoe@gmail.com",
-      "password": "5657758",
+      "password": "34",
       "profile_pic": "",
       "schedules": [
         {
@@ -54,7 +54,7 @@
       "id": "fa24",
       "name": "Derick",
       "email": "nzeluelijah@gmail.com",
-      "password": "788ndhcbh",
+      "password": "56",
       "profile_pic": "",
       "schedules": [
         {}
