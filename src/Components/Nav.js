@@ -30,14 +30,14 @@ function Nav() {
       };
 
       function handleSignin(){
-        fetch('http://localhost:3000/Members')
+        fetch('https://schedule-v2.onrender.com/Members')
         .then((response) => response.json())
         .then((memberlist) => {
           const parameter = memberlist && memberlist.find((member)=>{
             return (member.email === signemail) || (member.password===signpassword)
           })
           if (parameter===undefined){
-            fetch('http://localhost:3000/Members', {
+            fetch('https://schedule-v2.onrender.com/Members', {
               method: 'POST',
               body: JSON.stringify({
                 name: signname,
@@ -63,7 +63,7 @@ function Nav() {
       function login(e){
         e.preventDefault()
     
-          fetch('http://localhost:3000/Members')
+          fetch('https://schedule-v2.onrender.com/Members')
           .then((response) => response.json())
           .then((data) => {
       

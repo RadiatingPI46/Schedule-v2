@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {Button, Modal, Form, InputGroup, DropdownButton, Dropdown } from 'react-bootstrap';
+import moment from 'moment';
 
 const Schedule = ({ userId, onAdd, onUpdate, onDelete }) => {
   const [schedules, setSchedules] = useState([]);
@@ -18,7 +19,7 @@ const Schedule = ({ userId, onAdd, onUpdate, onDelete }) => {
   // Fetch schedules from db.json based on userId
   useEffect(() => {
     if (!userId) return; // Don't fetch if no userId is provided
-    fetch(`http://localhost:3000/Members/${userId}`)
+    fetch(`https://schedule-v2.onrender.com/Members/${userId}`)
       .then(response => {
         if (!response.ok) throw new Error('Error fetching schedules');
         return response.json();
@@ -26,6 +27,24 @@ const Schedule = ({ userId, onAdd, onUpdate, onDelete }) => {
       .then(data => setSchedules(data.schedules || []))
       .catch(error => console.error('Error fetching schedules:', error));
   }, [userId]);
+
+  useEffect(() => {
+    const intervalId = setInterval(checkForAlarms, 60000); // 60000 ms = 1 minute
+    return () => clearInterval(intervalId); // Cleanup the interval on unmount
+  }, [schedules]); // Re-run whenever schedules change
+
+  // Function to check if any schedules are due within the next 5 minutes
+  const checkForAlarms = () => {
+    const now = moment(); // Current time
+    schedules.forEach((schedule) => {
+      const scheduleTime = moment(`${schedule.date} ${schedule.time}`, 'YYYY-MM-DD HH:mm'); // Parse the schedule date and time
+      const diffInMinutes = scheduleTime.diff(now, 'minutes'); // Difference in minutes
+
+  if (diffInMinutes > 0 && diffInMinutes <= 5) {
+    alert(`Upcoming schedule: ${schedule.title} in ${diffInMinutes} minutes!`);
+  }
+});
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -38,14 +57,14 @@ const Schedule = ({ userId, onAdd, onUpdate, onDelete }) => {
   const handleSubmit = () => {
     if (editingScheduleId) {
       // Edit existing schedule
-      fetch(`http://localhost:3000/Members/${userId}`)
+      fetch(`https://schedule-v2.onrender.com/Members/${userId}`)
         .then(response => response.json())
         .then(memberData => {
           const updatedSchedules = memberData.schedules.map(schedule =>
             schedule.id === editingScheduleId ? { ...schedule, ...formData } : schedule
           );
 
-          return fetch(`http://localhost:3000/Members/${userId}`, {
+          return fetch(`https://schedule-v2.onrender.com/Members/${userId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...memberData, schedules: updatedSchedules })
@@ -68,12 +87,12 @@ const Schedule = ({ userId, onAdd, onUpdate, onDelete }) => {
       // Add new schedule
       const newSchedule = { ...formData, id: Date.now() };
 
-      fetch(`http://localhost:3000/Members/${userId}`)
+      fetch(`https://schedule-v2.onrender.com/Members/${userId}`)
         .then(response => response.json())
         .then(memberData => {
           const updatedSchedules = [...memberData.schedules, newSchedule];
 
-          return fetch(`http://localhost:3000/Members/${userId}`, {
+          return fetch(`https://schedule-v2.onrender.com/Members/${userId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...memberData, schedules: updatedSchedules })
@@ -98,12 +117,12 @@ const Schedule = ({ userId, onAdd, onUpdate, onDelete }) => {
 
   const handleDelete = (scheduleId) => {
     if (window.confirm('Are you sure you want to delete this schedule?')) {
-      fetch(`http://localhost:3000/Members/${userId}`)
+      fetch(`https://schedule-v2.onrender.com/Members/${userId}`)
         .then(response => response.json())
         .then(memberData => {
           const updatedSchedules = memberData.schedules.filter(schedule => schedule.id !== scheduleId);
 
-          return fetch(`http://localhost:3000/Members/${userId}`, {
+          return fetch(`https://schedule-v2.onrender.com/Members/${userId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...memberData, schedules: updatedSchedules })

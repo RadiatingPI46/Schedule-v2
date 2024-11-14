@@ -12,7 +12,7 @@ const [loading, setLoading] = useState(true);
 const [user, setUser] = useState(null); // Initialize with null to check if the user exists
 
 useEffect(() => {
-fetch(`http://localhost:3000/Members/${id}`)
+fetch(`https://schedule-v2.onrender.com/Members/${id}`)
 .then((response) => response.json())
 .then((data) => setUser(data))
 .catch((error) => {
@@ -23,6 +23,7 @@ console.error('Error fetching data:', error);
 
 if (loading) {
 return (
+<div style={{display:'flex', justifyContent:"center",alignItems:"center",minHeight:"900px"}}>
 <div class="loader">
   <div class="box box0">
     <div></div>
@@ -51,6 +52,7 @@ return (
   <div class="ground">
     <div></div>
   </div>
+</div>
 </div>
 );
 }

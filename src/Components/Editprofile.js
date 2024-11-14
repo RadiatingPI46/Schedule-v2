@@ -18,7 +18,7 @@ function Editprofile() {
 
 
   useEffect(() => {
-    fetch(`http://localhost:3000/Members/${id}`)
+    fetch(`https://schedule-v2.onrender.com/Members/${id}`)
     .then((response) => response.json())
     .then((data) => {
       setProdata(data)
@@ -29,7 +29,7 @@ function Editprofile() {
   },[])
 
   function submitUpdate(){
-    fetch(`http://localhost:3000/Members/${id}`, {
+    fetch(`https://schedule-v2.onrender.com/Members/${id}`, {
       method: 'PATCH',
       body: JSON.stringify({
         name: profilename,
