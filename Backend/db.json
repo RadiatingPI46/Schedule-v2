@@ -4,20 +4,33 @@
       "id": "1",
       "name": "Joseph",
       "email": "joseph@gmail.com",
+<<<<<<< HEAD
       "password": "56",
+=======
+      "password": "5674jvb",
+>>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
       "profile_pic": "",
       "schedules": [
         {
           "id": 1,
+<<<<<<< HEAD
           "title": "Meeting with Client",
           "date": "2024-01-25",
           "time": "10:00 AM",
           "description": "Discuss project proposal and timeline.",
           "status": "complete"
+=======
+          "title": "Meeting with Client A",
+          "time": "2024-11-11T10:00:00Z",
+          "date": "1/25/2024",
+          "description": "Discuss project proposal and timeline.",
+          "status": "pending"
+>>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
         },
         {
           "id": 2,
           "title": "Team Meeting",
+<<<<<<< HEAD
           "date": "2024-03-13",
           "time": "2:00 PM",
           "description": "Review project progress and assign tasks.",
@@ -136,10 +149,17 @@
           "time": "5:47 PM",
           "description": "Rh",
           "status": "pending"
+=======
+          "Time": "2024-11-12T14:00:00Z",
+          "date": "3/13/2024",
+          "description": "Review project progress and assign tasks.",
+          "status": "complete"
+>>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
         }
       ]
     },
     {
+<<<<<<< HEAD
       "id": "68ef",
       "name": "Emma",
       "email": "emma@gmail.com",
@@ -157,3 +177,41 @@
     }
   ]
 }
+=======
+      "id": "2",
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "password": "5657758",
+      "profile_pic": "",
+      "schedules": [
+        {
+          "id": 1,
+          "title": "Meeting with Client A",
+          "time": "2024-11-11T10:00:00Z",
+          "date": "1/25/2024",
+          "description": "Discuss project proposal and timeline.",
+          "status": "pending"
+        },
+        {
+          "id": 2,
+          "title": "Team Meeting",
+          "Time": "2024-11-12T14:00:00Z",
+          "date": "3/13/2024",
+          "description": "Review project progress and assign tasks.",
+          "status": "complete"
+        }
+      ]
+    },
+    {
+      "id": "fa24",
+      "name": "Derick",
+      "email": "nzeluelijah@gmail.com",
+      "password": "788ndhcbh",
+      "profile_pic": "",
+      "schedules": [
+        {}
+      ]
+    }
+  ]
+}
+>>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
