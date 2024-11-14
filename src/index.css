@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.profile-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 10px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.user-details {
+  text-align: center;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+}
+
+.schedule-item  {
+  background: #483714;
+  margin: 10px 0;
+  padding: 15px;
+ 
+}
+.hover-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(12, 98, 82, 0.2);
+}
+.item{
+  background: #c09069;
+  margin: 10px 0;
+  padding: 15px;
+  border: 1px solid #8b7f22;
+  border-radius: 8px;
+
+}
