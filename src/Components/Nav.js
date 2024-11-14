@@ -35,7 +35,7 @@ function Nav() {
         .then((response) => response.json())
         .then((memberlist) => {
           const parameter = memberlist && memberlist.find((member)=>{
-            return (member.email===signemail) && (member.password===signpassword)
+            return (member.email===signemail) || (member.password===signpassword)
           })
           if (parameter===undefined){
             fetch('https://schedule-v2.onrender.com/Members', {
