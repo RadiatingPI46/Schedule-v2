@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from 'react'
 import { useState } from 'react';
 import home_icon from '../Image/House icons for free download _ Freepik.jpeg'
@@ -159,3 +161,4 @@ function Nav() {
 }
 
 export default Nav
+>>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec

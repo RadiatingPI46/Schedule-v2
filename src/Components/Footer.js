@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 import React from 'react'
 
 function Footer() {
@@ -9,3 +11,4 @@ function Footer() {
 }
 
 export default Footer
+>>>>>>> 4512399e4708f7e8e638b52ad10edc1c6f04bbec
