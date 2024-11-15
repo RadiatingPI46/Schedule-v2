@@ -72,6 +72,17 @@ Handles 404 errors and displays a user-friendly error message.
 **App.js**
 The main component, responsible for rendering the app and defining routes.
 
+## links
+##### Live link :(https://schedule-v2.vercel.app/)
+
+##### Github link:(https://github.com/RadiatingPI46/Schedule-v2)
+
+##### PowerPoint link:(https://docs.google.com/presentation/d/19XAf-m8vb0pxITb0vD-P0XatPUH8-NcnhcLE-3TrRlo/edit?usp=sharing)
+
+##### Figma link:(https://www.figma.com/design/mzmEUXij5FfEi5xMNv2aOk/Untitled?node-id=0-1&t=h7UcGXEMK12lkqJa-1)
+
+##### Documentation link:(https://docs.google.com/document/d/1XRTYrlJimOHT1LxfT3vGapUgKSBfwp3HfTy3ua6l9Mo/edit?usp=sharing)
+
 ## Future Enhancements
 Google Calendar Integration: For a more robust scheduling feature.
 Admin Dashboard: To manage appointments and user profiles.
