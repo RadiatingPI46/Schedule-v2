@@ -164,7 +164,7 @@ function Nav() {
                       </div>
                       <div className="mb-3 form-check">
                         <input type="checkbox" className="form-check-input" id="exampleCheck1" required/>
-                        <label className="form-check-label" for="exampleCheck1"><a href='#'>Privacy Policy</a></label>
+                        <label className="form-check-label" for="exampleCheck1"><a href='https://github.com/RadiatingPI46/Schedule-v2/blob/master/POLICY.md'>Privacy Policy</a></label>
                       </div>
                       <button type="submit" className="btn btn-primary">Submit</button>
                     </form>
